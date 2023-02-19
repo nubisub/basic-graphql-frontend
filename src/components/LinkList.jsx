@@ -1,3 +1,5 @@
+// Queries the GraphQL API and renders a list of links
+
 import React from "react";
 import Link from "./Link.jsx";
 import { useQuery, gql } from "@apollo/client";
