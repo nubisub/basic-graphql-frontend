@@ -10,6 +10,12 @@
   },
   "dependencies": {
     "@apollo/client": "^3.7.8",
+    "@chakra-ui/icons": "^2.0.17",
+    "@chakra-ui/react": "^2.5.1",
+    "@emotion/react": "^11.10.6",
+    "@emotion/styled": "^11.10.6",
+    "@fontsource/inter": "^4.5.15",
+    "framer-motion": "^9.0.7",
     "graphql": "^16.6.0",
     "path-browserify": "^1.0.1",
     "react": "^18.2.0",

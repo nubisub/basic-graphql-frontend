@@ -1,26 +1,109 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
+import {
+  Box,
+  Flex,
+  Text,
+  IconButton,
+  Button,
+  Stack,
+  Collapse,
+  Icon,
+  Popover,
+  PopoverTrigger,
+  PopoverContent,
+  useColorModeValue,
+  useBreakpointValue,
+  useDisclosure,
+  Square,
+  Spacer,
+} from "@chakra-ui/react";
+import {
+  HamburgerIcon,
+  CloseIcon,
+  ChevronDownIcon,
+  ChevronRightIcon,
+} from "@chakra-ui/icons";
 
 const Header = () => {
   const navigate = useNavigate();
   return (
-    <div className="flex pa1 justify-between nowrap orange">
-      <div className="flex flex-fixed black">
-        <Link to="/" className="no-underline black">
-          <div className="fw7 mr1">Hacker News</div>
+    <Flex>
+      <Flex
+        as="nav"
+        align="center"
+        bg="white"
+        borderBottom="1px"
+        borderColor="gray.300"
+        w="100%"
+        px={4}
+        color="gray.700"
+      >
+        <Link to="/">
+          <Box
+            fontWeight={"bold"}
+            p={4}
+            _hover={{
+              background: "white",
+              color: "gray.900",
+            }}
+          >
+            Hacker News
+          </Box>
         </Link>
-        <Link to="/" className="ml1 no-underline black">
-          new
+        <Link to="/">
+          <Box
+            p={4}
+            _hover={{
+              background: "white",
+              color: "gray.900",
+            }}
+          >
+            New
+          </Box>
         </Link>
-        <div className="ml1">|</div>
-        <Link to="/create" className="ml1 no-underline black">
-          submit
+        <Link to="/top">
+          <Box
+            p={4}
+            _hover={{
+              background: "white",
+              color: "gray.900",
+            }}
+          >
+            Top
+          </Box>
         </Link>
-        <Link to="/search" className="ml1 no-underline black">
-          search
+        <Link to="/create">
+          <Box
+            p={4}
+            _hover={{
+              background: "white",
+              color: "gray.900",
+            }}
+          >
+            Submit
+          </Box>
         </Link>
-      </div>
-    </div>
+        <Link to="/search">
+          <Box
+            p={4}
+            _hover={{
+              background: "white",
+              color: "gray.900",
+            }}
+          >
+            Search
+          </Box>
+        </Link>
+        <Spacer />
+        <Flex gap={"2"}>
+          <Button border={"1px solid teal"} backgroundColor={"white"}>
+            Sign Up
+          </Button>
+          <Button colorScheme="teal">Sign In</Button>
+        </Flex>
+      </Flex>
+    </Flex>
   );
 };
 

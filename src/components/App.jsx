@@ -3,7 +3,7 @@ import "../styles/App.css";
 import LinkList from "./LinkList.jsx";
 import CreateLink from "./CreateLink.jsx";
 import Header from "./Header.jsx";
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 import Login from "./Login.jsx";
 import Search from "./Search.jsx";
 
@@ -15,10 +15,12 @@ function App() {
       <Header />
       <div className="ph3 pv1 background-gray">
         <Routes>
-          <Route path="/" element={<LinkList />} />
+          <Route path="/" element={<Navigate replace to="/new/1" />} />
           <Route path="/create" element={<CreateLink />} />
           <Route path="/login" element={<Login />} />
           <Route path={"/search"} element={<Search />} />
+          <Route path="/top" element={<LinkList />} />
+          <Route path="/new/:page" element={<LinkList />} />
         </Routes>
       </div>
     </div>

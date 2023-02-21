@@ -6,6 +6,8 @@ import { BrowserRouter } from "react-router-dom";
 import { split } from "@apollo/client";
 import { WebSocketLink } from "@apollo/client/link/ws";
 import { getMainDefinition } from "@apollo/client/utilities";
+// 1. import `ChakraProvider` component
+import { ChakraProvider } from "@chakra-ui/react";
 // 1
 import {
   ApolloProvider,
@@ -45,8 +47,10 @@ const link = split(({ query }) => {
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <BrowserRouter>
-    <ApolloProvider client={client}>
-      <App />
-    </ApolloProvider>
+    <ChakraProvider>
+      <ApolloProvider client={client}>
+        <App />
+      </ApolloProvider>
+    </ChakraProvider>
   </BrowserRouter>
 );
