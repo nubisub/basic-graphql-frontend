@@ -1,8 +1,19 @@
 import React from "react";
 import { timeDifferenceForDate } from "../utils";
 import { useMutation, gql } from "@apollo/client";
-import { Box, Flex, Square, Tooltip } from "@chakra-ui/react";
+import { Box, Flex, Square, Tab, Tooltip } from "@chakra-ui/react";
 import { ChevronUpIcon } from "@chakra-ui/icons";
+import {
+  Table,
+  Thead,
+  Tbody,
+  Tfoot,
+  Tr,
+  Th,
+  Td,
+  TableCaption,
+  TableContainer,
+} from "@chakra-ui/react";
 
 const LINKS_PER_PAGE = 5;
 
@@ -70,32 +81,36 @@ const Link = (props) => {
     },
   });
   return (
-    <Box>
-      <Flex gap={2} flexDirection={"row"}>
-        <span>{props.index + 1}.</span>
-        <div style={{ cursor: "pointer" }} onClick={vote}>
-          <Tooltip label="upvote">
-            <ChevronUpIcon
-              boxSize={6}
-              _hover={{ color: "green.600" }}
-              _active={{ color: "green.800" }}
-            />
-          </Tooltip>
-        </div>
-        <Flex gap={"2"} flexDirection={"column"}>
-          <Box fontSize={{ base: "md" }} fontWeight={{ base: "semibold" }}>
-            {link.description} ({link.url})
-          </Box>
-          {
-            <div>
-              {link.votes.length} votes | by{" "}
-              {link.postedBy ? link.postedBy.name : "Unknown"}{" "}
-              {timeDifferenceForDate(link.createdAt)}
+    <>
+      <Tr>
+        <Td borderRadius={"lg"}>
+          <Flex gap={2} flexDirection={"row"}>
+            <span>{props.index + 1}.</span>
+            <div style={{ cursor: "pointer" }} onClick={vote}>
+              <Tooltip label="upvote">
+                <ChevronUpIcon
+                  boxSize={6}
+                  _hover={{ color: "green.600" }}
+                  _active={{ color: "green.800" }}
+                />
+              </Tooltip>
             </div>
-          }
-        </Flex>
-      </Flex>
-    </Box>
+            <Flex gap={"2"} flexDirection={"column"}>
+              <Box fontSize={{ base: "md" }} fontWeight={{ base: "semibold" }}>
+                {link.description} ({link.url})
+              </Box>
+              {
+                <div>
+                  {link.votes.length} votes | by{" "}
+                  {link.postedBy ? link.postedBy.name : "Unknown"}{" "}
+                  {timeDifferenceForDate(link.createdAt)}
+                </div>
+              }
+            </Flex>
+          </Flex>
+        </Td>
+      </Tr>
+    </>
   );
 };
 

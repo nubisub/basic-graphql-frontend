@@ -1,7 +1,16 @@
 import React, { useState } from "react";
 import { useLazyQuery, gql } from "@apollo/client";
 import Link from "./Link";
-import { Box, Button, Flex, Input, Square } from "@chakra-ui/react";
+import {
+  Box,
+  Button,
+  Flex,
+  Input,
+  Square,
+  Table,
+  TableContainer,
+  Tbody,
+} from "@chakra-ui/react";
 import { Search2Icon } from "@chakra-ui/icons";
 
 const LINKS_PER_PAGE = 5;
@@ -60,12 +69,16 @@ const Search = () => {
           </Button>
         </Flex>
       </Flex>
-      <Flex flexDirection={"column"}>
-        {data &&
-          data.feed.links.map((link, index) => (
-            <Link key={link.id} link={link} index={index} />
-          ))}
-      </Flex>
+      <TableContainer p={"4"}>
+        <Table minW={"xl"} variant="striped" colorScheme="teal">
+          <Tbody>
+            {data &&
+              data.feed.links.map((link, index) => (
+                <Link key={link.id} link={link} index={index} />
+              ))}
+          </Tbody>
+        </Table>
+      </TableContainer>
     </Square>
   );
 };

@@ -96,11 +96,16 @@ const Header = () => {
           </Box>
         </Link>
         <Spacer />
+
         <Flex gap={"2"}>
-          <Button border={"1px solid teal"} backgroundColor={"white"}>
-            Sign Up
-          </Button>
-          <Button colorScheme="teal">Sign In</Button>
+          <Link to={"/signup"}>
+            <Button border={"1px solid teal"} backgroundColor={"white"}>
+              Sign Up
+            </Button>
+          </Link>
+          <Link to={"/signin"}>
+            <Button colorScheme="teal">Sign In</Button>
+          </Link>
         </Flex>
       </Flex>
     </Flex>

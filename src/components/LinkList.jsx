@@ -4,7 +4,15 @@ import React from "react";
 import Link from "./Link.jsx";
 import { useQuery, gql } from "@apollo/client";
 import { useLocation, useNavigate } from "react-router-dom";
-import { Box, Button, Flex, Square } from "@chakra-ui/react";
+import {
+  Box,
+  Button,
+  Flex,
+  Square,
+  Table,
+  TableContainer,
+  Tbody,
+} from "@chakra-ui/react";
 import { ChevronLeftIcon, ChevronRightIcon } from "@chakra-ui/icons";
 
 const LINKS_PER_PAGE = 5;
@@ -143,11 +151,15 @@ const LinkList = () => {
       {error && <pre>{JSON.stringify(error, null, 2)}</pre>}
       {data && (
         <>
-          <Flex flexDirection={"column"} gap={"4"}>
-            {getLinksToRender(isNewPage, data).map((link, index) => (
-              <Link key={link.id} link={link} index={index + pageIndex} />
-            ))}
-          </Flex>
+          <TableContainer p={"4"}>
+            <Table minW={"xl"} variant="striped" colorScheme="teal">
+              <Tbody>
+                {getLinksToRender(isNewPage, data).map((link, index) => (
+                  <Link key={link.id} link={link} index={index + pageIndex} />
+                ))}
+              </Tbody>
+            </Table>
+          </TableContainer>
           {isNewPage && (
             <Square gap={"4"}>
               <Button

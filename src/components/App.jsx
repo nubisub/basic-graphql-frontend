@@ -6,6 +6,8 @@ import Header from "./Header.jsx";
 import { Navigate, Route, Routes } from "react-router-dom";
 import Login from "./Login.jsx";
 import Search from "./Search.jsx";
+import SignUp from "./SignUp.jsx";
+import SignIn from "./SignIn.jsx";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -21,6 +23,8 @@ function App() {
           <Route path={"/search"} element={<Search />} />
           <Route path="/top" element={<LinkList />} />
           <Route path="/new/:page" element={<LinkList />} />
+          <Route path="signup" element={<SignUp />} />
+          <Route path="signin" element={<SignIn />} />
         </Routes>
       </div>
     </div>
